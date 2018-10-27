@@ -155,10 +155,10 @@ class ZkTreeUtil(object):
 		"""
 		print('ZNode path: %s' % znode.path)
 		print('ZNode stat: %s' % str(znode.stat))
-		if len(znode.data) == 0:
-			print('ZNode data: (empty)\n')
-		else:	
+		if znode.data and len(znode.data) >= 0:
 			print('ZNode data: %s\n' % znode.data)
+		else:
+			print('ZNode data: (empty)\n')
 
 
 	def process_znode_write_to_zk(self, znode, dest_zk_client, dest_zk_path, resolve):
